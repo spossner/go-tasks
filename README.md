@@ -2,10 +2,19 @@ A simple task list for the console.
 Play around with cobra, gorm and sqlite.
 
 # Install
-Created four commands
-- Add
-- Complete
-- Delete
-- List
+Just start with <code>go run .</code> to see the usage. You will have mainly four commands:
 
-Just start with go run . to see the usage
+## add [task]
+Add a new task to the todo list. Provid the text of the task as <code>task</code>. 
+
+**Note** that you need to put text with whitespaces into quotation marks.
+
+## complete [id]
+Set a task as being complete. Specify the task to complete by it's id.
+
+## delete [id]
+Removes a task from the todo list by it's id.
+
+## list
+Lists all of your tasks in the todo list.
+
