@@ -21,7 +21,7 @@ func NewSQLStore() *SQLStore {
 	return &SQLStore{db}
 }
 
-func (s *SQLStore) Add(name string) *task.Task {
+func (s *SQLStore) Create(name string) *task.Task {
 	t := task.NewTask(name)
 	s.db.Create(t)
 	return t

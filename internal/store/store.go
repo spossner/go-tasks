@@ -8,7 +8,7 @@ import (
 )
 
 type Store interface {
-	Add(name string) *task.Task
+	Create(name string) *task.Task
 	Get(id string) *task.Task
 	Delete(id string) error
 	Complete(id string) error
