@@ -11,6 +11,7 @@ require (
 	github.com/mergestat/timediff v0.0.3 // indirect
 	github.com/spf13/cobra v1.8.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/tj/go-naturaldate v1.3.0 // indirect
 	golang.org/x/text v0.18.0 // indirect
 	gorm.io/driver/sqlite v1.5.6 // indirect
 	gorm.io/gorm v1.25.12 // indirect

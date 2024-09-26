@@ -17,7 +17,7 @@ type Task struct {
 	CompletedAt time.Time
 }
 
-func NewTask(name string) *Task {
+func NewTask(name string, dueDate time.Time) *Task {
 	id, err := gonanoid.New()
 	if err != nil {
 		panic("error creating unique id")
@@ -26,7 +26,7 @@ func NewTask(name string) *Task {
 		id,
 		name,
 		time.Now(),
-		time.Time{},
+		dueDate,
 		time.Time{},
 	}
 }

@@ -2,13 +2,14 @@ package store
 
 import (
 	"sync"
+	"time"
 
 	"possner.de/tasks/internal/store/sqlstore"
 	"possner.de/tasks/internal/task"
 )
 
 type Store interface {
-	Create(name string) *task.Task
+	Create(name string, dueDate time.Time) *task.Task
 	Get(id string) *task.Task
 	Delete(id string) error
 	Complete(id string) error

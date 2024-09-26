@@ -2,6 +2,7 @@ package sqlstore
 
 import (
 	"fmt"
+	"time"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -21,8 +22,8 @@ func NewSQLStore() *SQLStore {
 	return &SQLStore{db}
 }
 
-func (s *SQLStore) Create(name string) *task.Task {
-	t := task.NewTask(name)
+func (s *SQLStore) Create(name string, dueDate time.Time) *task.Task {
+	t := task.NewTask(name, dueDate)
 	s.db.Create(t)
 	return t
 }
