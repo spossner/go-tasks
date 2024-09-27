@@ -15,14 +15,13 @@ import (
 var completeCmd = &cobra.Command{
 	Use:   "complete",
 	Short: "Set a task as being complete",
-	Long:  "",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 1 {
 			return errors.New("missing task name")
 		}
 		id := args[0]
 		store.GetStore().Complete(id)
-		fmt.Println("complete called")
+		fmt.Printf("completed %s\n", id)
 		return nil
 	},
 }

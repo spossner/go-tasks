@@ -15,7 +15,6 @@ import (
 var deleteCmd = &cobra.Command{
 	Use:   "delete",
 	Short: "Removes a task from the todo list by it's id",
-	Long:  "",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 1 {
 			return errors.New("missing task name")
@@ -24,7 +23,7 @@ var deleteCmd = &cobra.Command{
 		if err := store.GetStore().Delete(id); err != nil {
 			return errors.New("failed deleting task")
 		}
-		fmt.Println("delete called")
+		fmt.Printf("deleted %s\n", id)
 		return nil
 	},
 }

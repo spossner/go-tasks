@@ -1,8 +1,9 @@
 package task
 
 import (
-	"encoding/json"
+	"bytes"
 	"fmt"
+	"text/tabwriter"
 	"time"
 
 	gonanoid "github.com/matoous/go-nanoid/v2"
@@ -65,9 +66,9 @@ func (t *Task) GetDueTo() string {
 }
 
 func (t *Task) String() string {
-	a, err := json.Marshal(t)
-	if err != nil {
-		return ""
-	}
-	return string(a)
+	buf := bytes.Buffer{}
+	w := tabwriter.NewWriter(&buf, 0, 2, 4, ' ', 0)
+	fmt.Fprintf(w, "%v\t%v\t%v\t%v\t%v\n", t.ID, t.Name, t.GetCreatedAt(), t.GetDueTo(), t.GetCompleted())
+	w.Flush()
+	return buf.String()
 }

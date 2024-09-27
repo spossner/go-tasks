@@ -32,7 +32,7 @@ func createTask(cmd *cobra.Command, args []string) error {
 	dueDate := time.Time{}
 	if due != "" {
 		now := time.Now()
-		dueDate, err = naturaldate.Parse(due, now)
+		dueDate, err = naturaldate.Parse(due, now, naturaldate.WithDirection(naturaldate.Future))
 		if err != nil || now.Equal(dueDate) {
 			return errors.New("error parsing due date " + due)
 		}
@@ -41,7 +41,7 @@ func createTask(cmd *cobra.Command, args []string) error {
 		}
 	}
 	t := store.GetStore().Create(args[0], dueDate)
-	fmt.Println("createed", t)
+	fmt.Println("created", t)
 	return nil
 }
 

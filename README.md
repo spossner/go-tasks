@@ -1,28 +1,49 @@
 A simple task list for the console.
 Play around with cobra, gorm and sqlite.
 
-# Install
+# Usage
+Build the app by calling `go build -o tasks .`.
+This will compile tha app into an executable named `tasks` in current folder.
+Launching `tasks` without any additional parameter, you will see the usage guide.
 
-Just start with <code>go run .</code> to see the usage. You will have mainly four commands:
+## Adding a new task
+Add a new task to the todo list with the `create` command. 
+Provide the text of the task right after create.
 
-## add [task]
+With the optional `due` flag, you can specify a due date. Specify the due date in a 
+human readable format like `tomorrow`, `in 2 days`, `next week` or `december 23rd`.
+```
+./tasks create [<task>] [--due <due-date>]
+```
 
-Add a new task to the todo list. Provid the text of the task as <code>task</code>.
+### Example
+```
+./tasks create "Without due date"
+./tasks create "Learn cobra" --due "next week"
+```
 
-**Note** that you need to put text with whitespaces into quotation marks.
-
-## complete [id]
-
+## Set a task complete
 Set a task as being complete. Specify the task to complete by it's id.
+```
+./tasks complete [id]
+```
+### Example
+```
+./tasks complete WPtjZvKso6Xq-ViC2_HzB
+```
 
-## delete [id]
-
+## Remove a task
 Removes a task from the todo list by it's id.
+```
+./tasks delete [id]
+```
+### Example
+```
+./tasks delete WPtjZvKso6Xq-ViC2_HzB
+```
 
-## list
-
+## List all tasks
 Lists all of your tasks in the todo list.
-
-# IDE
-
-Note to run/debug the command line app with the needed args to avoid running into the usage screen.
+```
+./tasks list
+```

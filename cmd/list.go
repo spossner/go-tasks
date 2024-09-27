@@ -16,7 +16,6 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "Lists all of your tasks in the todo list",
-	Long:  "",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		tasks := store.GetStore().List()
 
@@ -26,7 +25,6 @@ var listCmd = &cobra.Command{
 			fmt.Fprintf(w, "%v\t%v\t%v\t%v\t%v\n", t.ID, t.Name, t.GetCreatedAt(), t.GetDueTo(), t.GetCompleted())
 		}
 		w.Flush()
-		fmt.Println("list called")
 		return nil
 	},
 }

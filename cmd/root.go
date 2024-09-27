@@ -13,7 +13,6 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "tasks",
 	Short: "A todo list for the command line",
-	Long:  "",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
